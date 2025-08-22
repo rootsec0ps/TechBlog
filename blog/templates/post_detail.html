@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="{% static 'myfirst.css' %}">
+<body>
+    <h1><u><a href="{% url 'blog:post_list' %}">Tech Blog</a></u></h1>
+
+    <div>
+        <h2>{{ object.title }}</h2>
+        <p><i>{{ object.description }}</i></p>
+        <p>{{ object.content }}</p>
+        <p>Published on: {{ object.date_added }}</p>
+        <br>
+        <p><a href="{% url 'blog:post_list' %}">Back to homepage</a></p>
+    </div>
+
+</body>
+</html>
