@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="{% static 'myfirst.css' %}">
+<body>
+
+    <h1><u><a href="{% url 'blog:post_list' %}">Tech Blog</a></u></h1>
+    <h2>List of published blog posts</h2>
+
+    
+    <div>
+        {% for post in object_list %}
+        <br>
+        <p><b>{{ post.pk }}. <a href="{% url 'blog:post_detail' post.pk %}">{{ post.title }}</a></b></p>
+        <p><i><b>Posted on:</b> {{post.date_added}}</i></p>
+        <p><i><b>Summary: </b>{{ post.description }}</i></p>
+        <br>
+        {% endfor %}
+    </div>
+    
+
+</body>
+</html>
