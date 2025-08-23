@@ -32,13 +32,13 @@
             <button name="submit">Post reply</button>
         </form>
 
-
+        <br>
         <h2 style="font-size: 26px; text-align: left;">Replies:</h2>
 
         <ul>
             {% for reply in replies %}
                 <li>
-                    <p> Published on: {{ reply.date_added|date:'d-M-Y H:i' }}</p>
+                    <p style="font-size: 14px;"> Reply by <b>{{ reply.name }}</b> on {{ reply.date_added|date:'d M Y H:i' }}:</p>
                     <p> {{ reply.text|linebreaks }}</p>
                 </li>
             {% empty %}
