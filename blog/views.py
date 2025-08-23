@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView
 
 from .models import Post, Reply
@@ -14,13 +14,13 @@ class PostListView(ListView):
 #    template_name = "post_detail.html"
 
 def post(request, post_id):
-    post = Post.objects.get(id=post_id)
+    post = get_object_or_404(Post, id=post_id)
     replies = post.reply_set.order_by('-date_added')
     context = {'post': post, 'replies': replies}
     return render(request, 'post_detail.html', context)
 
 def new_reply(request, post_id):
-    post = Post.objects.get(id=post_id)
+    post = get_object_or_404(Post, id=post_id)
     replies = post.reply_set.order_by('-date_added')
 
     if request.method != 'POST':
