@@ -7,7 +7,7 @@ from .forms import ReplyForm
 # Create your views here.
 class PostListView(ListView):
     model = Post
-    template_name = "post_list.html"
+    template_name = "index.html"
 
 #class PostDetailView(DetailView):
 #    model = Post

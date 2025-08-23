@@ -10,5 +10,5 @@ urlpatterns = [
     # Detail page for a specific post
     path("<int:post_id>/", views.post, name="post_detail"),
     # Home page
-    path("", PostListView.as_view(), name="post_list"),
+    path("", PostListView.as_view(), name="index"),
 ]

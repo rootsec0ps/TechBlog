@@ -15,7 +15,7 @@
 
     <body>
         <p style="text-align: center;">01101001011010010001011101010011101100010101011101001001</p>
-        <h1 style="text-align: center;"><u><a href="{% url 'blog:post_list' %}">Tech Blog</a></u></h1>
+        <h1 style="text-align: center;"><u><a href="{% url 'blog:index' %}">Tech Blog</a></u></h1>
         <br>
         <h2 style="font-size: 26px; text-align: center;">{{ post.title }}</h2>
         <div>
@@ -23,7 +23,7 @@
             <p style="font-size: 18px;">Description: <i>{{ post.description }}</i></p>
             <p>{{ post.content }}</p>
             <p style="font-size: 13px;">Published on: {{ post.date_added }}</p><br>
-            <p style="text-align: right;"><a href="{% url 'blog:post_list' %}">Back to homepage</a></p>
+            <p style="text-align: right;"><a href="{% url 'blog:index' %}">Back to homepage</a></p>
             <br>
 
         <h2 style="font-size: 26px; text-align: center;">Replies:</h2>
