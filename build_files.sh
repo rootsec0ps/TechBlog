@@ -5,11 +5,11 @@ chmod +x build_files.sh
 python3 -m pip install -r requirements.txt
 
 # Migrating database...
-python manage.py makemigrations --noinput
-python manage.py migrate --noinput
+python3 manage.py makemigrations --noinput
+python3 manage.py migrate --noinput
 
 # Collecting static files...
-python manage.py collectstatic --noinput
+python3 manage.py collectstatic --noinput
 
 # Create Vercel-compatible output vercel directory
 mkdir -p .vercel/output/static
