@@ -1,9 +1,16 @@
-echo "Building project packages..."
-python -m pip install -r requirements.txt
+#!/bin/bash
+chmod +x build_files.sh
 
-echo "Migrating database..."
+# Install dependencies
+python3 -m pip install -r requirements.txt
+
+# Migrating database...
 python manage.py makemigrations --noinput
 python manage.py migrate --noinput
 
-echo "Collecting static files..."
+# Collecting static files...
 python manage.py collectstatic --noinput
+
+# Create Vercel-compatible output vercel directory
+mkdir -p .vercel/output/static
+cp -r staticfiles/ .vercel/output/static/
