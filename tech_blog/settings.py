@@ -86,11 +86,11 @@ DATABASES = {
 #    }
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tech_blog_db',
-        'USER': 'root_user',
-        'PASSWORD': 'v3ryh@rd',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': os.environ.get("DB_NAME"),
+        'USER': os.environ.get("DB_USER"),
+        'PASSWORD': os.environ.get("DB_PASSWORD"),
+        'HOST': os.environ.get("DB_HOST"),
+        'PORT': os.environ.get("DB_PORT"),
     }
 
 }
