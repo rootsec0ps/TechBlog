@@ -29,7 +29,8 @@ STATIC_ROOT = BASE_DIR/'staticfiles'
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG') == 'True'
+#DEBUG = os.environ.get('DEBUG') == 'True'
+DEBUG = True
 
 ALLOWED_HOSTS = ['.localhost', '.127.0.0.1', '.vercel.app', '.now.sh',]
 
@@ -86,11 +87,17 @@ DATABASES = {
 #    }
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get("DB_NAME"),
-        'USER': os.environ.get("DB_USER"),
-        'PASSWORD': os.environ.get("DB_PASSWORD"),
-        'HOST': os.environ.get("DB_HOST"),
-        'PORT': os.environ.get("DB_PORT"),
+        #'NAME': os.environ.get("DB_NAME"),
+        #'USER': os.environ.get("DB_USER"),
+        #'PASSWORD': os.environ.get("DB_PASSWORD"),
+        #'HOST': os.environ.get("DB_HOST"),
+        #'PORT': os.environ.get("DB_PORT"),
+        
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'PD6QLAFTVrOb3BTq',
+        'HOST': 'db.kixrgjcpnzawkbtrxnvd.supabase.co',
+        'PORT': '5432',
     }
 
 }
