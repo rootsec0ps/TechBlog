@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
-from dotenv import load_dotenv
-load_dotenv()
+from dotenv import load_dotenv, find_dotenv
+load_dotenv(find_dotenv())
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = os.environ.get('DEBUG') == 'True'
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['.localhost', '.127.0.0.1', '.vercel.app', '.now.sh',]
 
@@ -97,7 +97,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': 'PD6QLAFTVrOb3BTq',
         'HOST': 'db.kixrgjcpnzawkbtrxnvd.supabase.co',
-        'PORT': '5432',
+        'PORT': '',
     }
 
 }
