@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv())
 import os
@@ -19,18 +20,23 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Added code by me to see if this will work on Vercel for loading static files
-STATICFILES_DIRS = [BASE_DIR/'blog'/'static',]
-STATIC_ROOT = BASE_DIR/'staticfiles'
+#STATICFILES_DIRS = [BASE_DIR/'blog'/'static',]
+#STATIC_ROOT = BASE_DIR/'blog'/'static'
+
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles", "blog", "static") 
+STATIC_URL = "/staticfiles/"
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET_KEY']
+#SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = os.getenv('SECRET_KEY') if "SECRET_KEY" in os.environ["SECRET_KEY"] else config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = os.environ['DEBUG'] == 'True'
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['.localhost', '.127.0.0.1', '.vercel.app', '.now.sh',]
 
@@ -86,12 +92,20 @@ DATABASES = {
 #        'NAME': BASE_DIR / 'db.sqlite3',
 #    }
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg3',
-        'NAME': os.environ['DB_NAME'],
-        'USER': os.environ['DB_USER'],
-        'PASSWORD': os.environ['DB_PASSWORD'],
-        'HOST': os.environ['DB_HOST'],
-        'PORT': os.environ['DB_PORT'],
+        'ENGINE': 'django.db.backends.postgresql',
+        
+        #'NAME': os.environ['DB_NAME'],
+        #'USER': os.environ['DB_USER'],
+        #'PASSWORD': os.environ['DB_PASSWORD'],
+        #'HOST': os.environ['DB_HOST'],
+        #'PORT': os.environ['DB_PORT'],
+
+        # TEST CODE for VERCEL
+        'NAME': os.getenv('DB_NAME') if "DB_NAME" in os.environ["DB_NAME"] else config("DB_NAME"),
+        'USER': os.getenv('DB_USER') if "DB_USER" in os.environ["DB_USER"] else config("DB_USER"),
+        'PASSWORD': os.getenv('DB_PASSWORD') if "DB_PASSWORD" in os.environ["DB_PASSWORD"] else config("DB_PASSWORD"),
+        'HOST': os.getenv('DB_HOST') if "DB_HOST" in os.environ["DB_HOST"] else config("DB_HOST"),
+        'PORT': os.getenv('DB_PORT') if "DB_PORT" in os.environ["DB_PORT"] else config("DB_PORT"),
         
         #'NAME': 'postgres',
         #'USER': 'postgres',
