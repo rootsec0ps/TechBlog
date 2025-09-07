@@ -23,8 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 #STATICFILES_DIRS = [BASE_DIR/'blog'/'static',]
 #STATIC_ROOT = BASE_DIR/'blog'/'static'
 
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles", "blog", "static") 
-STATIC_URL = "/staticfiles/"
+STATIC_ROOT = os.path.join(BASE_DIR, "blog", "static") 
+STATIC_URL = "/blog/static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "blog", "static")]
 
 # Quick-start development settings - unsuitable for production
@@ -101,7 +101,6 @@ DATABASES = {
         #'PORT': os.environ['DB_PORT'],
 
         # TEST CODE for VERCEL
-        'ENGINE': os.getenv('POSTGRES_URL') if "POSTGRES_URL" in os.environ["POSTGRES_URL"] else config("POSTGRES_URL"),
         'NAME': os.getenv('DB_NAME') if "DB_NAME" in os.environ["DB_NAME"] else config("DB_NAME"),
         'USER': os.getenv('DB_USER') if "DB_USER" in os.environ["DB_USER"] else config("DB_USER"),
         'PASSWORD': os.getenv('DB_PASSWORD') if "DB_PASSWORD" in os.environ["DB_PASSWORD"] else config("DB_PASSWORD"),
