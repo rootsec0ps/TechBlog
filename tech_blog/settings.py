@@ -26,11 +26,11 @@ STATIC_ROOT = BASE_DIR/'staticfiles'
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = os.environ.get('DEBUG') == 'True'
-DEBUG = False
+DEBUG = os.environ['DEBUG'] == 'True'
+#DEBUG = False
 
 ALLOWED_HOSTS = ['.localhost', '.127.0.0.1', '.vercel.app', '.now.sh',]
 
@@ -86,20 +86,19 @@ DATABASES = {
 #        'NAME': BASE_DIR / 'db.sqlite3',
 #    }
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        #'NAME': os.environ.get("DB_NAME"),
-        #'USER': os.environ.get("DB_USER"),
-        #'PASSWORD': os.environ.get("DB_PASSWORD"),
-        #'HOST': os.environ.get("DB_HOST"),
-        #'PORT': os.environ.get("DB_PORT"),
+        'ENGINE': 'django.db.backends.postgresql_psycopg3',
+        'NAME': os.environ.get['DB_NAME'],
+        'USER': os.environ.get['DB_USER'],
+        'PASSWORD': os.environ['DB_PASSWORD'],
+        'HOST': os.environ['DB_HOST'],
+        'PORT': os.environ['DB_PORT'],
         
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'PD6QLAFTVrOb3BTq',
-        'HOST': 'db.kixrgjcpnzawkbtrxnvd.supabase.co',
-        'PORT': '6543',
+        #'NAME': 'postgres',
+        #'USER': 'postgres',
+        #'PASSWORD': [SEE .env FILE],
+        #'HOST': 'db.kixrgjcpnzawkbtrxnvd.supabase.co',
+        #'PORT': '6543',
     }
-
 }
 
 
