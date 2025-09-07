@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 #STATICFILES_DIRS = [BASE_DIR/'blog'/'static',]
 #STATIC_ROOT = BASE_DIR/'blog'/'static'
 
-STATIC_ROOT = os.path.join(BASE_DIR, "blog", "staticfiles") 
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles") 
 STATIC_URL = "/blog/static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "blog", "static")]
 
@@ -39,6 +39,10 @@ SECRET_KEY = os.getenv('SECRET_KEY') if "SECRET_KEY" in os.environ["SECRET_KEY"]
 DEBUG = True
 
 ALLOWED_HOSTS = ['.localhost', '.127.0.0.1', '.vercel.app', '.now.sh',]
+
+# SUPABASE CONNECTION VARIABLES
+supabase_url = os.getenv("SUPABASE_URL")
+supabase_anon_key = os.getenv("SUPABASE_ANON_KEY")
 
 
 # Application definition
