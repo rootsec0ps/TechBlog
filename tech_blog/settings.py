@@ -19,13 +19,7 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Added code by me to see if this will work on Vercel for loading static files
-#STATICFILES_DIRS = [BASE_DIR/'blog'/'static',]
-#STATIC_ROOT = BASE_DIR/'blog'/'static'
 
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles") 
-STATIC_URL = "/blog/static/"
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "blog", "static")]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -36,7 +30,7 @@ SECRET_KEY = os.getenv('SECRET_KEY') if "SECRET_KEY" in os.environ["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = os.environ['DEBUG'] == 'True'
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['.localhost', '.127.0.0.1', '.vercel.app', '.now.sh',]
 
@@ -111,11 +105,6 @@ DATABASES = {
         'HOST': os.getenv('DB_HOST') if "DB_HOST" in os.environ["DB_HOST"] else config("DB_HOST"),
         'PORT': os.getenv('DB_PORT') if "DB_PORT" in os.environ["DB_PORT"] else config("DB_PORT"),
         
-        #'NAME': 'postgres',
-        #'USER': 'postgres',
-        #'PASSWORD': [SEE .env FILE],
-        #'HOST': 'db.kixrgjcpnzawkbtrxnvd.supabase.co',
-        #'PORT': '6543',
     }
 }
 
@@ -155,6 +144,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# Added code by me to see if this will work on Vercel for loading static files
+#STATICFILES_DIRS = [BASE_DIR/'blog'/'static',]
+#STATIC_ROOT = BASE_DIR/'blog'/'static'
+
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles") 
+#STATICFILES_DIRS = [os.path.join(BASE_DIR, "blog", "static")]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
