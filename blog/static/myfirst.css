@@ -46,3 +46,8 @@ p.blocktext {
     margin-right: auto;
     width: 36em
 }
+
+html, body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
