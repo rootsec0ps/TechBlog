@@ -8,9 +8,3 @@ python3 -m pip install -r requirements.txt
 python3 manage.py makemigrations --noinput
 python3 manage.py migrate --noinput
 
-# Collecting static files...
-python3 manage.py collectstatic --clear --noinput
-
-# Create Vercel-compatible output vercel directory
-mkdir -p .vercel/output/static
-cp -r .vercel/path0/staticfiles/ .vercel/output/static/
