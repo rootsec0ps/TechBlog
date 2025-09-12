@@ -9,7 +9,7 @@ python3 manage.py makemigrations --noinput
 python3 manage.py migrate --noinput
 
 # Collecting static files...
-python3 manage.py collectstatic --noinput
+python3 manage.py collectstatic --noinput --clear
 
 # Create Vercel-compatible output vercel directory
 mkdir -p .vercel/output/static
