@@ -1,5 +1,5 @@
 html, body {
-    min-width: 1024px;
+    min-width: 960px;
     overflow-x: auto;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
@@ -51,6 +51,6 @@ button {
 p.blocktext {
     margin-left: auto;
     margin-right: auto;
-    width: 36em
+    width: 60%
 }
 
