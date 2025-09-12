@@ -23,11 +23,5 @@
             "src": "/(.*)",
             "dest": "tech_blog/wsgi.py"
         }
-    ],
-    "rewrites": [
-    {
-            "source": "/(.*)",
-            "destination": "/api"
-    }
     ]
 }
