@@ -13,4 +13,4 @@ python3 manage.py collectstatic --clear --noinput
 
 # Create Vercel-compatible output vercel directory
 mkdir -p .vercel/output/static
-cp /vercel/path0/staticfiles/ .vercel/output/static/
+cp -r /vercel/path0/staticfiles/ .vercel/output/static/
