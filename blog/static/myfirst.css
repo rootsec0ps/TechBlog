@@ -1,3 +1,10 @@
+html, body {
+    min-width: 1024px;
+    overflow-x: auto;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
 body {
     background-color: black;
     font-family: 'Courier';
@@ -47,7 +54,3 @@ p.blocktext {
     width: 36em
 }
 
-html, body {
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-}
