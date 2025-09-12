@@ -12,12 +12,14 @@
             }
         </style>
 
-        <meta name="viewport" content="width=960, initial-scale=1, user-scalable=yes">
+        <meta name="viewport" content="width=720, initial-scale=1, user-scalable=yes">
         <link rel="stylesheet" href="{% static 'myfirst.css' %}">
     </head>
 
-    <body>
-        <p class="blocktext">
+    <body class="child">
+        <br><br>
+        <div class="logocontainer">
+        <p>
             
                     ::::::::.&nbsp;&nbsp;&nbsp;&nbsp;.:::.&nbsp;&nbsp;&nbsp;&nbsp;.:::.::::::::::::::::: <br>
                     ||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;&nbsp;[x]<br>
@@ -29,13 +31,14 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;╔╝═══╚╗&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-\<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;║&nbsp;&nbsp;█&nbsp;&nbsp;║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-\<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;╚=====╝&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/____________________\<br>
-        </p>
-        <h1 style="text-align: center;"><u><a href="{% url 'blog:index' %}">01101000 01101111 01101101 01100101</a></u></h1>
-        <h2 style="font-size: 26px; text-align: center;">{{ post.title }}</h2>
-        <div>
+        </p></div>
+        <br><br>
+        <h1 style="text-align: center; font-weight: 500;"><u><a href="{% url 'blog:index' %}">01101000 01101111 01101101 01100101</a></u></h1>
+        <h2 style="font-size: 26px; text-align: center; font-weight: 500;">{{ post.title }}</h2>
+        <div class="listcontainer" style="line-height: 1.2">
             <br>
             <p style="font-size: 18px;">Description: <i>{{ post.description }}</i></p>
-            <p>{{ post.content }}</p>
+            <p>{{ post.content|linebreaks }}</p>
             <p style="font-size: 13px;">Published on: {{ post.date_added }}</p><br>
             <p style="text-align: right;"><a href="{% url 'blog:index' %}">Back to homepage</a></p><br>
 
@@ -47,13 +50,13 @@
         </form>
 
         <br>
-        <h2 style="font-size: 26px; text-align: left;">Replies:</h2>
+        <h2 style="font-size: 26px; text-align: left; font-weight: 500;">Replies:</h2>
 
         <ul>
             {% for reply in replies %}
-                <li>
+                <li style="line-height: 1.2">
                     <p style="font-size: 14px;"> Reply by <b>{{ reply.name }}</b> on {{ reply.date_added|date:'d M Y H:i' }}:</p>
-                    <p> {{ reply.text|linebreaks }}</p>
+                    <p>{{ reply.text|linebreaks }}</p>
                 </li>
             {% empty %}
                 <li> There are no replies for this post yet.</li>

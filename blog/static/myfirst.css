@@ -1,5 +1,5 @@
 html, body {
-    min-width: 960px;
+    min-width: 720px;
     overflow-x: auto;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
@@ -9,16 +9,38 @@ body {
     background-color: black;
     font-family: 'Courier';
     color: green;
-    padding-top: 30px;
-    padding-left: 300px;
-    padding-right: 300px;
+    width: 720px;
+    position: relative;
 }
 
-div {
+body.child {
+    position: absolute;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%)
+
+}
+
+div.listcontainer {
     border-style: none double none double;
     padding-right: 30px;
     padding-left: 30px;
+    line-height: 0.7;
     
+}
+
+div.logocontainer {
+    height: 10em;
+    position: relative;
+}
+
+div.logocontainer p {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
 }
 
 a {
@@ -48,9 +70,5 @@ button {
     padding: 8px;
 }
 
-p.blocktext {
-    margin-left: auto;
-    margin-right: auto;
-    width: 60%
-}
+
 

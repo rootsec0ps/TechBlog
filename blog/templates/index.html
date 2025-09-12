@@ -6,18 +6,17 @@
         <title>Tech Blog</title>
 
         <style>
-            .line-height-adjust {
-                line-height: 0.5;
-            }
+
         </style>
 
-        <meta name="viewport" content="width=960, initial-scale=1, user-scalable=yes">
+        <meta name="viewport" content="width=720, initial-scale=1, user-scalable=yes">
         <link rel="stylesheet" href="{% static 'myfirst.css' %}">
     </head>
 
-    <body>
-        <p class="blocktext">
-            
+    <body class="child">
+        <br><br>
+        <div class="logocontainer">
+        <p>
                     ::::::::.&nbsp;&nbsp;&nbsp;&nbsp;.:::.&nbsp;&nbsp;&nbsp;&nbsp;.:::.::::::::::::::::: <br>
                     ||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;&nbsp;[x]<br>
                     ||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;[x]&nbsp;&nbsp;&nbsp;&nbsp;╔════════════════╗<br>
@@ -28,8 +27,9 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;╔╝═══╚╗&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-\<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;║&nbsp;&nbsp;█&nbsp;&nbsp;║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-\<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;╚=====╝&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/____________________\<br>
-        </p>
-        <h1 style="text-align: center;"><u><a href="{% url 'blog:index' %}">01101000 01101111 01101101 01100101</a></u></h1>
+        </p></div>
+        <br><br>
+        <h1 style="text-align: center; font-weight: 500;"><u><a href="{% url 'blog:index' %}">01101000 01101111 01101101 01100101</a></u></h1>
         <p style="text-align: left;">Welcome to ROOT BBS, owned and maintained by rootsec0ps. This is a 
             space for cybersecurity news, hacker culture, privacy advocacy & programming. I also like to keep track 
             of my own progress and discoveries as a beginning developer. Currently I'm invested in Python, 
@@ -37,17 +37,16 @@
             to everything!</p>
         <br>
         
-        <div class="line-height-adjust">
-            <h2>List of published blog posts:</h2>
+        <div class="listcontainer">
+            <h2 style="font-weight: 500;">List of published blog posts:</h2>
             {% for post in object_list %}
             <br>
             <p>{{ post.id }}. <a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a></p>
             <p><i><b>Posted on:</b> {{post.date_added}}</i></p>
-            <p><i><b>Summary: </b>{{ post.description }}</i></p>
+            <p style="line-height: 1.2"><i><b>Summary: </b>{{ post.description }}</i></p>
             {% endfor %}
             <br>
         </div>
-        
 
     </body>
 </html>
