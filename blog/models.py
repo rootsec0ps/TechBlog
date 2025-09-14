@@ -23,7 +23,8 @@ class Reply(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        verbose_name_plural: 'replies'
+        verbose_name = 'reply'
+        verbose_name_plural = 'replies'
 
     def __str__(self):
         return f"{self.text[:50]}..."
