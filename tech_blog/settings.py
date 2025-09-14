@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv('SECRET_KEY') if "SECRET_KEY" in os.environ["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = os.environ['DEBUG'] == 'True'
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['.localhost', '.127.0.0.1', '.vercel.app', '.now.sh',]
 

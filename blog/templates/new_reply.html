@@ -1,0 +1,31 @@
+{% extends "post_detail.html" %}
+
+{% block title %}New reply{% endblock %}
+
+{% block leaveComment %}{% endblock %}
+
+
+{% block comments %}
+    <h2 style="font-size: 26px; text-align: center; font-weight: 500;">Reply to comment:</h2>
+
+    <ul>
+        <li style="line-height: 1.2">
+            <p style="font-size: 14px;"> Comment by <b>{{ comment.name }}</b> on {{ comment.date_added|date:'d M Y H:i' }}:</p>
+            <p style="line-height: 1.2"> {{ comment.text|linebreaks }}</p>
+            <p style="font-size: 16px;">
+                {% block postReply %}        
+                    <p>Leave a reply:</p>
+                        <form action="{% url 'blog:new_reply' post.id comment.id %}" method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button name="submit">Reply</button>
+                        </form>
+                {% endblock %}
+            </p>
+        </li>
+        <br>
+    </ul>
+{% endblock %}
+
+
+
