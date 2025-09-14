@@ -1,43 +1,12 @@
+{% extends "base.html" %}
 
-{% load static %}
-<!DOCTYPE html>
-<html>
+{% block title %}Post comment{% endblock %}
 
-    <head>
-        <title>Post comment</title>
-
-        <style>
-            .line-height-adjust {
-                line-height: 0.5;
-            }
-        </style>
-
-        <meta name="viewport" content="width=720, initial-scale=1, user-scalable=yes">
-        <link rel="stylesheet" href="{% static 'myfirst.css' %}">
-    </head>
-
-    <body class="child">
-        <br><br>
-        <div class="logocontainer">
-        <p>
-            
-                    ::::::::.&nbsp;&nbsp;&nbsp;&nbsp;.:::.&nbsp;&nbsp;&nbsp;&nbsp;.:::.::::::::::::::::: <br>
-                    ||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;&nbsp;[x]<br>
-                    ||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;[x]&nbsp;&nbsp;&nbsp;&nbsp;╔════════════════╗<br>
-                    ||::::://&nbsp;//&nbsp;_&nbsp;|&nbsp;_&nbsp;\\&nbsp;_&nbsp;|&nbsp;_&nbsp;\\&nbsp;&nbsp;[x]&nbsp;&nbsp;&nbsp;&nbsp;║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;║<br>       
-                    ||&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;[x]&nbsp;&nbsp;&nbsp;&nbsp;║&nbsp;&nbsp;&nbsp;█&nbsp;ACCESS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;║<br>
-                    ||&nbsp;&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;[x]&nbsp;&nbsp;&nbsp;&nbsp;║&nbsp;&nbsp;&nbsp;█&nbsp;DENIED&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;║<br>
-                    ||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;\\_&nbsp;_//&nbsp;&nbsp;\\_╔═//╗&nbsp;&nbsp;&nbsp;[x]&nbsp;&nbsp;&nbsp;&nbsp;║________________║<br>                        
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;╔╝═══╚╗&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-\<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;║&nbsp;&nbsp;█&nbsp;&nbsp;║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-\<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;╚=====╝&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/____________________\<br>
-        </p></div>
-        <br><br>
-        <h1 style="text-align: center; font-weight: 500;"><u><a href="{% url 'blog:index' %}">01101000 01101111 01101101 01100101</a></u></h1>
+{% block content %}
+        <br>
         <h2 style="font-size: 26px; text-align: center; font-weight: 500;">{{ post.title }}</h2>
         <div class="listcontainer" style="line-height: 1.2">
-            <br>
-            <p style="font-size: 18px;">Description: <i>{{ post.description }}</i></p>
+            <p style="font-size: 20px;">Description: <i>{{ post.description }}</i></p>
             <p>{{ post.content|linebreaks }}</p>
             <p style="font-size: 13px;">Published on: {{ post.date_added }}</p><br>
             <p style="text-align: right;"><a href="{% url 'blog:index' %}">Back to homepage</a></p><br>
@@ -63,7 +32,7 @@
             {% endfor %}
         </ul>
         </div>
-    </body>
-</html>
+
+{% endblock %}
 
     

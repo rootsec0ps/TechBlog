@@ -1,36 +1,9 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-    
-    <head>
-        <title>Tech Blog</title>
+{% extends "base.html" %}
 
-        <style>
+{% block title %}rootsec0ps{% endblock %}
 
-        </style>
+{% block content %}
 
-        <meta name="viewport" content="width=720, initial-scale=1, user-scalable=yes">
-        <link rel="stylesheet" href="{% static 'myfirst.css' %}">
-        <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon1.png' %}">
-    </head>
-
-    <body class="child">
-        <br><br>
-        <div class="logocontainer">
-        <p>
-                    ::::::::.&nbsp;&nbsp;&nbsp;&nbsp;.:::.&nbsp;&nbsp;&nbsp;&nbsp;.:::.::::::::::::::::: <br>
-                    ||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;&nbsp;[x]<br>
-                    ||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;[x]&nbsp;&nbsp;&nbsp;&nbsp;╔════════════════╗<br>
-                    ||::::://&nbsp;//&nbsp;_&nbsp;|&nbsp;_&nbsp;\\&nbsp;_&nbsp;|&nbsp;_&nbsp;\\&nbsp;&nbsp;[x]&nbsp;&nbsp;&nbsp;&nbsp;║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;║<br>       
-                    ||&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;[x]&nbsp;&nbsp;&nbsp;&nbsp;║&nbsp;&nbsp;&nbsp;█&nbsp;ACCESS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;║<br>
-                    ||&nbsp;&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;[x]&nbsp;&nbsp;&nbsp;&nbsp;║&nbsp;&nbsp;&nbsp;█&nbsp;DENIED&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;║<br>
-                    ||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;\\_&nbsp;_//&nbsp;&nbsp;\\_╔═//╗&nbsp;&nbsp;&nbsp;[x]&nbsp;&nbsp;&nbsp;&nbsp;║________________║<br>                        
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;╔╝═══╚╗&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-\<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;║&nbsp;&nbsp;█&nbsp;&nbsp;║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-\<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;╚=====╝&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/____________________\<br>
-        </p></div>
-        <br><br>
-        <h1 style="text-align: center; font-weight: 500;"><u><a href="{% url 'blog:index' %}">01101000 01101111 01101101 01100101</a></u></h1>
         <p style="text-align: left;">Welcome to ROOT BBS, owned and maintained by rootsec0ps. This is a 
             space for cybersecurity news, hacker culture, privacy advocacy & programming. Currently I'm discovering in Python, 
             Django, html, css and Javascript. Feel free to start a discussion in the comments, I will reply
@@ -48,5 +21,4 @@
             <br>
         </div>
 
-    </body>
-</html>
+{% endblock %}
