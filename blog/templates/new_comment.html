@@ -1,16 +1,8 @@
-{% extends "base.html" %}
+{% extends "post_detail.html" %}
 
 {% block title %}Post comment{% endblock %}
 
-{% block content %}
-        <br>
-        <h2 style="font-size: 26px; text-align: center; font-weight: 500;">{{ post.title }}</h2>
-        <div class="listcontainer" style="line-height: 1.2">
-            <p style="font-size: 20px;">Description: <i>{{ post.description }}</i></p>
-            <p>{{ post.content|linebreaks }}</p>
-            <p style="font-size: 13px;">Published on: {{ post.date_added }}</p><br>
-            <p style="text-align: right;"><a href="{% url 'blog:index' %}">Back to homepage</a></p><br>
-
+{% block leaveComment %} 
         <p>Leave a comment:</p>
         <form action="{% url 'blog:new_comment' post.id %}" method="post">
             {% csrf_token %}
@@ -19,19 +11,6 @@
         </form>
 
         <br>
-        <h2 style="font-size: 26px; text-align: left; font-weight: 500;">Comments:</h2>
-
-        <ul>
-            {% for comment in comments %}
-                <li style="line-height: 1.2">
-                    <p style="font-size: 14px;"> Comment by <b>{{ comment.name }}</b> on {{ comment.date_added|date:'d M Y H:i' }}:</p>
-                    <p>{{ comment.text|linebreaks }}</p>
-                </li>
-            {% empty %}
-                <li> There are no comments for this post yet.</li>
-            {% endfor %}
-        </ul>
-        </div>
 
 {% endblock %}
 
