@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView
 
-from .models import Post, Reply
-from .forms import ReplyForm
+from .models import Post, Comment
+from .forms import CommentForm
 
 # Create your views here.
 class PostListView(ListView):
@@ -15,27 +15,27 @@ class PostListView(ListView):
 
 def post(request, post_id):
     post = get_object_or_404(Post, id=post_id)
-    replies = post.reply_set.order_by('-date_added')
-    context = {'post': post, 'replies': replies}
+    comments = post.comment_set.order_by('-date_added')
+    context = {'post': post, 'comments': comments}
     return render(request, 'post_detail.html', context)
 
-def new_reply(request, post_id):
+def new_comment(request, post_id):
     post = get_object_or_404(Post, id=post_id)
-    replies = post.reply_set.order_by('-date_added')
+    comments = post.comment_set.order_by('-date_added')
 
     if request.method != 'POST':
         # When no data is submitted, create a blank form
-        form = ReplyForm()
+        form = CommentForm()
 
     else:
         # POST data submitted, process data
-        form = ReplyForm(data=request.POST)
+        form = CommentForm(data=request.POST)
         if form.is_valid():
-            new_reply = form.save(commit=False)
-            new_reply.post = post
-            new_reply.save()
+            new_comment = form.save(commit=False)
+            new_comment.post = post
+            new_comment.save()
             return redirect('blog:post_detail', post_id=post_id)
     
     # Display a blank or invalid form
-    context = {'form': form, 'post': post, 'replies': replies}
-    return render(request, 'new_reply.html', context)
+    context = {'form': form, 'post': post, 'comments': comments}
+    return render(request, 'new_comment.html', context)

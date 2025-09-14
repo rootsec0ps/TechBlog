@@ -4,7 +4,7 @@
 <html>
 
     <head>
-        <title>Tech Blog</title>
+        <title>Post comment</title>
 
         <style>
             .line-height-adjust {
@@ -42,24 +42,24 @@
             <p style="font-size: 13px;">Published on: {{ post.date_added }}</p><br>
             <p style="text-align: right;"><a href="{% url 'blog:index' %}">Back to homepage</a></p><br>
 
-        <p>Post a reply:</p>
-        <form action="{% url 'blog:new_reply' post.id %}" method="post">
+        <p>Leave a comment:</p>
+        <form action="{% url 'blog:new_comment' post.id %}" method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button name="submit">Post reply</button>
+            <button name="submit">Post comment</button>
         </form>
 
         <br>
-        <h2 style="font-size: 26px; text-align: left; font-weight: 500;">Replies:</h2>
+        <h2 style="font-size: 26px; text-align: left; font-weight: 500;">Comments:</h2>
 
         <ul>
-            {% for reply in replies %}
+            {% for comment in comments %}
                 <li style="line-height: 1.2">
-                    <p style="font-size: 14px;"> Reply by <b>{{ reply.name }}</b> on {{ reply.date_added|date:'d M Y H:i' }}:</p>
-                    <p>{{ reply.text|linebreaks }}</p>
+                    <p style="font-size: 14px;"> Comment by <b>{{ comment.name }}</b> on {{ comment.date_added|date:'d M Y H:i' }}:</p>
+                    <p>{{ comment.text|linebreaks }}</p>
                 </li>
             {% empty %}
-                <li> There are no replies for this post yet.</li>
+                <li> There are no comments for this post yet.</li>
             {% endfor %}
         </ul>
         </div>

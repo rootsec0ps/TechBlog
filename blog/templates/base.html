@@ -1,25 +1,20 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
+    
     <head>
-        <title>{{ post.title }}</title>
-
-        <style>
-            .line-height-adjust {
-                line-height: 0.5;
-            }
-        </style>
-
         <meta name="viewport" content="width=720, initial-scale=1, user-scalable=yes">
         <link rel="stylesheet" href="{% static 'myfirst.css' %}">
+        <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon1.png' %}">
+
+        <title>{% block title %}rootsec0ps{% endblock %}</title>
     </head>
 
     <body class="child">
         <br><br>
         <div class="logocontainer">
+            {% block logo %}
         <p>
-            
                     ::::::::.&nbsp;&nbsp;&nbsp;&nbsp;.:::.&nbsp;&nbsp;&nbsp;&nbsp;.:::.::::::::::::::::: <br>
                     ||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;&nbsp;[x]<br>
                     ||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\&nbsp;&nbsp;&nbsp;[x]&nbsp;&nbsp;&nbsp;&nbsp;╔════════════════╗<br>
@@ -30,34 +25,11 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;╔╝═══╚╗&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-\<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;║&nbsp;&nbsp;█&nbsp;&nbsp;║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-&nbsp;-\<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;╚=====╝&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/____________________\<br>
-        </p></div>
-        <br><br>
-        <h1 style="text-align: center; font-weight: 500;"><u><a href="{% url 'blog:index' %}">01101000 01101111 01101101 01100101</a></u></h1>
-        <br>
-        <h2 style="font-size: 26px; text-align: center; font-weight: 500;">{{ post.title }}</h2>
-        <div class="listcontainer" style="line-height: 1.2">
-            <br>
-            <p style="font-size: 18px; line-height: 1.5;">Description: <i>{{ post.description }}</i></p>
-            <p>{{ post.content|linebreaks }}</p>
-            <p style="font-size: 13px;">Published on: {{ post.date_added }}</p><br>
-            <p style="text-align: right;"><a href="{% url 'blog:index' %}">Back to homepage</a></p>
-            <br>
-
-        <h2 style="font-size: 26px; text-align: center; font-weight: 500;">Comments:</h2>
-        <p style="font-size: 20px; text-align: right;">
-            <a href="{% url 'blog:new_comment' post.id %}">Leave a comment</a>
-        </p>
-        <ul>
-            {% for comment in comments %}
-                <li style="line-height: 1.2">
-                    <p style="font-size: 14px;"> Comment by <b>{{ comment.name }}</b> on {{ comment.date_added|date:'d M Y H:i' }}:</p>
-                    <p style="line-height: 1.2"> {{ comment.text|linebreaks }}</p>
-                </li>
-            {% empty %}
-                <li> There are no comments for this post yet.</li>
-            {% endfor %}
-            <br>
-        </ul>
+        </p>{% endblock %}
         </div>
+
+        
+        {% block content %}{% endblock %}
+
     </body>
 </html>

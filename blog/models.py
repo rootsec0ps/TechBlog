@@ -16,15 +16,15 @@ class Post(models.Model):
         """Return a string representation of the model"""
         return self.title
 
-class Reply(models.Model):
+class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     text = models.TextField()
     name = models.CharField()
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        verbose_name = 'reply'
-        verbose_name_plural = 'replies'
+        verbose_name = 'comment'
+        verbose_name_plural = 'comments'
 
     def __str__(self):
         return f"{self.text[:50]}..."

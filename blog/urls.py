@@ -6,7 +6,7 @@ from .views import PostListView
 app_name = "blog"
 urlpatterns = [
     # Page for adding a new reply
-    path("new_reply/<int:post_id>/", views.new_reply, name="new_reply"),
+    path("new_comment/<int:post_id>/", views.new_comment, name="new_comment"),
     # Detail page for a specific post
     path("<int:post_id>/", views.post, name="post_detail"),
     # Home page

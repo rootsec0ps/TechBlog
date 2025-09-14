@@ -1,12 +1,12 @@
 from django import forms
 
-from .models import Post, Reply
+from .models import Post, Comment
 
-class ReplyForm(forms.ModelForm):
+class CommentForm(forms.ModelForm):
     name = forms.CharField(label="Your name", max_length=100, required=True)
 
     class Meta:
-        model = Reply
+        model = Comment
         fields = ['text', 'name']
         labels = {'text': '', 'name': ''}
         widgets = {'text': forms.Textarea(attrs={'cols': 80})}
