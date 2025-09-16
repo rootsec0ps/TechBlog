@@ -9,36 +9,47 @@
         <p style="font-size: 20px; line-height: 1.5;">Description: <i>{{ post.description }}</i></p>
         <p>{{ post.content|linebreaks }}</p>
         <p style="font-size: 13px;">Published on: {{ post.date_added }}</p><br>
-        <p style="text-align: right;"><a href="{% url 'blog:index' %}">Back to homepage</a></p><br>
-        <p style="text-align: center;">-----</p>        
+        <p style="text-align: right;"><button type="button"><a style="text-decoration: none;" href="{% url 'blog:index' %}">Back to homepage</a></button></p>
+        <br>
+        <p style="text-align: center;"></p>        
         <br>
     
-    {% block leaveComment %}    
-    <p style="font-size: 20px; text-align: right;">
-        <a href="{% url 'blog:new_comment' post.id %}">Leave a comment</a>
-    </p>
-    {% endblock %}
+
+        {% block leaveComment %}    
+        <p style="font-size: 20px; text-align: right;">
+            <button type="button"><a style="text-decoration: none; font-size: 17px;" href="{% url 'blog:new_comment' post.id %}"> Leave a comment </a></button>
+        </p><br>
+        {% endblock %}
+
 
     {% block comments %}
     <h2 style="font-size: 26px; text-align: center; font-weight: 500;">Comments:</h2>
+
+
 
     <ul>
         {% for comment in comments %}
             <li style="line-height: 1.2">
                 <p style="font-size: 14px;"> Comment by <b>{{ comment.name }}</b> on {{ comment.date_added|date:'d M Y H:i' }}:</p>
                 <p style="line-height: 1.2"> {{ comment.text|linebreaks }}</p>
-                <p style="font-size: 16px; text-align: right;">
-                    {% block postReply %}<a href="{% url 'blog:new_reply' post.id comment.id %}">Reply</a>{% endblock %}
+                <p style="font-size: 12px; text-align: right;">
+                    {% block postReply %}
+                        <button type="button"><a style="text-decoration: none; font-size: 14px;" href="{% url 'blog:new_reply' post.id comment.id %}">Reply</a></button>
+                    {% endblock %}
                 </p>
+                <br>
                 <ul>
                     {% for reply in replies %}
-                    <li style="line-height: 1.2">
-                        <p style="font-size: 14 px;"> Reply by <b>{{ reply.name }}</b> on {{ reply.date_added|date:'d M Y H:i' }}</p>
-                        <p style="line-height: 1.2"> {{ reply.text|linebreaks }}</p>
-                    </li>
+                        {% if reply.comment.id == comment.id %}
+                        <li style="line-height: 1.2">
+                            <p style="font-size: 14px;"> Reply by <b>{{ reply.name }}</b> on {{ reply.date_added|date:'d M Y H:i' }}</p>
+                            <p style="line-height: 1.2"> {{ reply.text|linebreaks }}</p>
+                            <br>
+                        </li>
+                        {% endif %}
                     {% empty %}
                     <li style="line-height: 1.2">
-                        <p style="font-size: 14 px;"> No replies yet</p>
+                        <p style="font-size: 14px;"> No replies yet</p><br>
                     </li>
                     {% endfor %}
                 </ul>

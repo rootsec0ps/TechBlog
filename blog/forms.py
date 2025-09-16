@@ -18,4 +18,4 @@ class ReplyForm(forms.ModelForm):
         model = Reply
         fields = ['text', 'name']
         labels = {'text': '', 'name': ''}
-        widgets = {'text': forms.Textarea(attrs={'cols': 80})}
+        widgets = {'text': forms.Textarea(attrs={'rows': 10, 'cols': 70})}

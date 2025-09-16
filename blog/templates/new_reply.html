@@ -14,7 +14,7 @@
             <p style="line-height: 1.2"> {{ comment.text|linebreaks }}</p>
             <p style="font-size: 16px;">
                 {% block postReply %}        
-                    <p>Leave a reply:</p>
+                    <p style="font-size: 20px;">Leave a reply:</p>
                         <form action="{% url 'blog:new_reply' post.id comment.id %}" method="post">
                             {% csrf_token %}
                             {{ form.as_p }}

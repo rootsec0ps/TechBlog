@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView
 
-from .models import Post, Comment
+from .models import Post, Comment, Reply
 from .forms import CommentForm, ReplyForm
 
 # Create your views here.
@@ -16,12 +16,19 @@ class PostListView(ListView):
 def post(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     comments = post.comment_set.order_by('-date_added')
-    context = {'post': post, 'comments': comments}
+    replies = Reply.objects.filter(comment__in=comments)
+    context = {
+        'post': post, 
+        'comments': comments, 
+        'replies': replies,
+        }
+
     return render(request, 'post_detail.html', context)
 
 def new_comment(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     comments = post.comment_set.order_by('-date_added')
+    replies = Reply.objects.filter(comment__in=comments)
 
     if request.method != 'POST':
         # When no data is submitted, create a blank form
@@ -37,7 +44,7 @@ def new_comment(request, post_id):
             return redirect('blog:post_detail', post_id=post_id)
     
     # Display a blank or invalid form
-    context = {'form': form, 'post': post, 'comments': comments}
+    context = {'form': form, 'post': post, 'comments': comments, 'replies': replies}
     return render(request, 'new_comment.html', context)
 
 def new_reply(request, post_id, comment_id):

@@ -16,6 +16,9 @@ class Post(models.Model):
         """Return a string representation of the model"""
         return self.title
 
+    def comments(self):
+        return self.comment_set.all()
+
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     text = models.TextField()
